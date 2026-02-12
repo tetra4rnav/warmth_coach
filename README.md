@@ -49,6 +49,41 @@ npm run dev
 
 Visit `http://localhost:3000`.
 
+
+## Deploy to Heroku (GitHub連携)
+
+このリポジトリは `Procfile` と `app.json` を含んでおり、HerokuのNode.js buildpackでそのままデプロイできます。
+
+### 1) Herokuアプリ作成
+- Heroku Dashboard → **New** → **Create new app**
+- Regionを選択して作成
+
+### 2) GitHub連携
+- アプリ画面の **Deploy** タブ → **Deployment method: GitHub**
+- 対象リポジトリを接続
+- 必要なら **Enable Automatic Deploys** をON
+
+### 3) Config Vars設定
+Herokuアプリの **Settings** → **Config Vars** に以下を設定:
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `SUPABASE_SERVICE_ROLE_KEY`
+- `LLM_API_KEY`
+- `LLM_BASE_URL` (未設定なら `https://api.openai.com/v1`)
+- `LLM_MODEL` (例: `gpt-4.1-mini`)
+- `DEV_BYPASS_AUTH=false`
+- `NEXT_PUBLIC_DEV_BYPASS_AUTH=false`
+
+> Herokuでは本番用途のため、dev bypass authは必ず`false`にしてください。
+
+### 4) 初回デプロイ
+- **Deploy Branch** を実行（またはmainへpush）
+- `heroku-postbuild` で `next build` が走り、`web: npm run start` で起動します
+
+### 5) 動作確認
+- アプリURLにアクセス
+- `/new` からセッションを開始して、メッセージ送信・レビュー生成まで確認
+
 ## Auth notes
 - **Default**: Supabase magic-link auth. Users enter email on the landing screen.
 - **Dev bypass**: set `DEV_BYPASS_AUTH=true` and `NEXT_PUBLIC_DEV_BYPASS_AUTH=true` to enable a cookie-based anonymous user id.

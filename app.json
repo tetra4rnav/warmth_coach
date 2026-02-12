@@ -1,0 +1,53 @@
+{
+  "name": "warmth-coach",
+  "description": "Warmth Coach MVP (Next.js + Supabase + streaming LLM)",
+  "repository": "https://github.com/your-org/warmth_coach",
+  "logo": "https://node-js-sample.herokuapp.com/node.svg",
+  "keywords": [
+    "nextjs",
+    "typescript",
+    "supabase",
+    "llm"
+  ],
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": {
+      "description": "Supabase project URL"
+    },
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": {
+      "description": "Supabase anon key"
+    },
+    "SUPABASE_SERVICE_ROLE_KEY": {
+      "description": "Supabase service role key"
+    },
+    "LLM_BASE_URL": {
+      "description": "OpenAI-compatible base URL",
+      "value": "https://api.openai.com/v1"
+    },
+    "LLM_API_KEY": {
+      "description": "LLM API key"
+    },
+    "LLM_MODEL": {
+      "description": "Chat model name",
+      "value": "gpt-4.1-mini"
+    },
+    "DEV_BYPASS_AUTH": {
+      "description": "Enable only for local/dev; keep false on Heroku",
+      "value": "false"
+    },
+    "NEXT_PUBLIC_DEV_BYPASS_AUTH": {
+      "description": "Enable only for local/dev; keep false on Heroku",
+      "value": "false"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
