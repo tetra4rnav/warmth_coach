@@ -10,6 +10,9 @@
     "dev": "next dev",
     "build": "next build",
     "heroku-postbuild": "next build",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -19,6 +22,8 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.2",
     "@supabase/supabase-js": "^2.45.4",
+    "@radix-ui/react-tabs": "^1.1.2",
+    "@radix-ui/react-slot": "^1.1.0",
     "clsx": "^2.1.1",
     "next": "14.2.5",
     "react": "^18.3.1",
@@ -26,6 +31,8 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "@supabase/supabase-js": "^2.45.4"
   },
   "devDependencies": {
     "@types/node": "^20.14.10",
